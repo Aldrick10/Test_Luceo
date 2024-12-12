@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luceo - Catalogue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="catalogue" class="main-bg-color">
+    <!-- HEADER -->
+    <header class=" top-0 left-0 w-full py-4 px-6 mb-20 flex justify-between items-center z-50">
+
+        <!-- Menu Burger Icon -->
+        <div class="flex items-center pl-20">
+            <button aria-label="Menu" id="menuButtonB" class="inline-block hover:opacity-80">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                    stroke="currentColor" class="w-8 h-8 text-black">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 5.25h16.5M3.75 12h16.5M3.75 18.75h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Centered Logo -->
+        <a href="./index.html#accueil">
+            <div class="flex justify-center">
+                <img src="./img/logo_luceo_SF_B.png" alt="Logo" class="h-36 ml-20">
+            </div>
+        </a>
+
+        <!-- Search and Cart Icons -->
+        <div class="flex items-center gap-x-20 pr-20 relative">
+
+            <!-- Search Input and Icon -->
+            <div class="relative flex items-center">
+
+                <!-- Search Input (Hidden by Default) -->
+                <input type="text"
+                    class="absolute right-12 hidden w-80 rounded-full bg-black bg-opacity-25 px-4 py-1 text-black focus:outline-none z-10"
+                    id="searchInput">
+
+                <!-- Search Icon -->
+                <button aria-label="Search" id="searchButton" class="relative z-20 inline-block hover:opacity-80">
+                    <img src="./img/icon-search-B.png" class="w-8 h-8" alt="icone recherche">
+                </button>
+
+            </div>
+
+            <!-- Cart Icon -->
+            <button aria-label="Cart" class="inline-block hover:opacity-80">
+                <img src="./img/icon-cart-B.png" class="w-8 h-8" alt="icone panier">
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Dropdown Menu -->
+    <div id="dropdownMenuB" class="absolute bg-[#F9F6F3] left-0 hidden z-40 w-auto border-black border-r border-b">
+        <ul class="font-normal text-lg">
+            <li><a href="./index.html#accueil" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Accueil</a>
+            </li>
+            <li><a href="./index.html#nouveautés"
+                    class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Nouveautés</a></li>
+            <li><a href="#" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Catalogue</a></li>
+            <li><a href="./index.html#aPropos" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">À propos</a>
+            </li>
+            <li><a href="#footer" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Mentions légales</a></li>
+        </ul>
+    </div>
+
+    <!-- Filters and Sorting -->
+    <div class="container mx-auto max-w-screen-2xl grid grid-cols-4 gap-6 px-8 py-6">
+        <div class="w-full max-w-md mx-auto">
+            <!-- Bouton principal -->
+            <button id="filterToggle"
+                class="w-full text-left bg-[#F9F6F3] border border-black px-8 py-2 flex justify-between items-center">
+                <span class="text-lg font-bold">Filtres</span>
+                <svg class="w-4 h-4 transform transition-transform" id="arrowIcon" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </button>
+
+            <!-- Contenu du menu -->
+            <div id="filterMenu" class="hidden mt-1 bg-[#F9F6F3] border border-black px-4 py-2">
+                <!-- Gamme de prix -->
+                <div>
+                    <button
+                        class="my-2 w-full text-left font-semibold py-2 px-8 space-y-4 hover:bg-stone-200 rounded-md"
+                        data-toggle="true">Gamme de prix</button>
+                    <div class="hidden flex items-center space-x-8 py-2 px-10">
+                        <input type="text" placeholder="Prix min" id="priceMax"
+                            class="w-full text-center border border-black rounded-md p-2">
+                        <input type="text" placeholder="Prix max" id="priceMin"
+                            class="w-full text-center border border-black rounded-md p-2">
+                    </div>
+                </div>
+
+                <!-- Collection éphémère -->
+                <div>
+                    <button
+                        class="my-2 w-full text-left font-semibold py-2 px-8 space-y-4 hover:bg-stone-200 rounded-md"
+                        data-toggle="true">Collection éphémère</button>
+                    <div class="hidden flex flex-col space-y-2 py-2 px-8 border border-black rounded">
+                        <label class="flex justify-between items-center">
+                            <span>Tout voir</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Bourgeon</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Éclosion</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Abscission</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Cristallisation</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Collection permanente -->
+                <div class="my-2 w-full">
+                    <label
+                        class="flex justify-between items-center py-2 px-8 w-full font-semibold hover:bg-stone-200 rounded-md cursor-pointer">
+                        <span>Collection permanente</span>
+                        <input type="checkbox" class="ml-2">
+                    </label>
+                </div>
+
+                <!-- Type -->
+                <div>
+                    <button
+                        class="my-2 w-full text-left font-semibold py-2 px-8 space-y-4 hover:bg-stone-200 rounded-md"
+                        data-toggle="true">Type</button>
+                    <div class="hidden flex flex-col space-y-2 py-2 px-8 border border-black rounded">
+                        <label class="flex justify-between items-center">
+                            <span>Boucle d’oreille</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Pendentif</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Bracelet</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Bague</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Pierre -->
+                <div>
+                    <button
+                        class="my-2 w-full text-left font-semibold py-2 px-8 space-y-4 hover:bg-stone-200 rounded-md"
+                        data-toggle="true">Pierre</button>
+                    <div class="hidden flex flex-col space-y-2 py-2 px-8 border border-black rounded">
+                        <label class="flex justify-between items-center">
+                            <span>Avec pierre</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Sans pierre</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Type de pierre -->
+                <div>
+                    <button
+                        class="my-2 w-full text-left font-semibold py-2 px-8 space-y-4 hover:bg-stone-200 rounded-md"
+                        data-toggle="true">Type de pierre</button>
+                    <div class="hidden flex flex-col space-y-2 py-2 px-8 border border-black rounded">
+                        <label class="flex justify-between items-center">
+                            <span>Aventurine</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Citrine</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Œil de tigre</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Pierre de lune</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Couleur pierre -->
+                <div>
+                    <button
+                        class="my-2 w-full text-left font-semibold py-2 px-8 space-y-4 hover:bg-stone-200 rounded-md"
+                        data-toggle="true">Couleur pierre</button>
+                    <div class="hidden flex flex-col space-y-2 py-2 px-8 border border-black rounded">
+                        <label class="flex justify-between items-center">
+                            <span>Noire</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Blanc</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Gris</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Beige</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Marron</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Rouge</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Orange</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Jaune</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Vert</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Bleu</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Rose</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Violet</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Matériaux -->
+                <div>
+                    <button
+                        class="my-2 w-full text-left font-semibold py-2 px-8 space-y-4 hover:bg-stone-200 rounded-md"
+                        data-toggle="true">Matériaux</button>
+                    <div class="hidden flex flex-col space-y-2 py-2 px-8 border border-black rounded">
+                        <label class="flex justify-between items-center">
+                            <span>Or</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                        <label class="flex justify-between items-center">
+                            <span>Argent</span>
+                            <input type="checkbox" class="ml-2">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bouton Réinitialiser -->
+                <div class="p-8">
+                    <button id="resetButton"
+                        class="w-full text-center font-semibold border border-black p-2 hover:bg-stone-300">Réinitialiser</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Catalogue -->
+        <main class="col-span-3">
+            <div class="flex justify-end items-center mb-4">
+                <label for="sort" class="text-xl font-bold mr-4">Tri</label>
+                <div class="relative">
+                    <select id="sort"
+                        class="appearance-none bg-[#F9F6F3] border border-black text-black text-lg font-semibold pl-3 pr-8 py-2 focus:outline-none focus:ring-0 focus:border-black">
+                        <option>Popularité</option>
+                        <option>Nouveautés</option>
+                        <option>Prix croissant</option>
+                        <option>Prix décroissant</option>
+                        <option>Ordre alphabétique (A - Z)</option>
+                        <option>Ordre alphabétique (Z - A)</option>
+                    </select>
+                    <!-- Custom arrow -->
+                    <div class="absolute inset-y-0 right-2 flex items-center pointer-events-none">
+                        <svg class="w-4 h-4 text-black" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-3 gap-6 mt-12">
+                <!-- Product Card -->
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Abscission/pendentif_absci_porte_2.webp" alt="Pendentif Abscission"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+
+                        <!-- Badge Nouveauté -->
+                        <div
+                            class="absolute top-2 left-2 bg-white bg-opacity-60 text-xl border border-black px-12 py-px">
+                            Nouveauté
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Pendentif Abscission</p>
+                    <p>180,00 $CA</p>
+                </div>
+
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Abscission/bague_absci_porte.webp" alt="Bague Abscission"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+
+                        <!-- Badge Nouveauté -->
+                        <div
+                            class="absolute top-2 left-2 bg-white bg-opacity-60 text-xl border border-black px-12 py-px">
+                            Nouveauté
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Bague Abscission</p>
+                    <p>185,00 $CA</p>
+                </div>
+
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Abscission/bracelet_absci_porte.webp" alt="Bracelet Abscission"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+
+                        <!-- Badge Nouveauté -->
+                        <div
+                            class="absolute top-2 left-2 bg-white bg-opacity-60 text-xl border border-black px-12 py-px">
+                            Nouveauté
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Bracelet Abscission</p>
+                    <p>182,00 $CA</p>
+                </div>
+
+                <!-- Product Card -->
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Eclosion/pendentif_eclo_porte.webp" alt="Pendentif Eclosion"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Pendentif Eclosion</p>
+                    <p>160,00 $CA</p>
+                </div>
+
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Eclosion/bague_eclo_porte_3.webp" alt="Bague Eclosion"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Bague Eclosion</p>
+                    <p>165,00 $CA</p>
+                </div>
+
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Eclosion/bracelet_eclo_porte_3.webp" alt="Bracelet Eclosion"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Bracelet Eclosion</p>
+                    <p>185,00 $CA</p>
+                </div>
+
+                <!-- Product Card -->
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Bourgeon/pendentif_bourg_porte_2.webp" alt="Pendentif Bourgeon"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Pendentif Bourgeon</p>
+                    <p>100,00 $CA</p>
+                </div>
+
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Bourgeon/bague_bourg_porte.webp" alt="Bague Bourgeon"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Bague Bourgeon</p>
+                    <p>105,00 $CA</p>
+                </div>
+
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <!-- Image principale avec zoom au survol -->
+                        <img src="./img/Collection_Bourgeon/bracelet_bourg_porte.webp" alt="Bracelet Bourgeon"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-2xl font-medium mt-2">Bracelet Bourgeon</p>
+                    <p>125,00 $CA</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="py-10 mt-44 text-center">
+
+        <!-- Instagram Icon -->
+        <div class="mb-6">
+            <a href="#" aria-label="Instagram" class="inline-block hover:opacity-80">
+                <img src="./img/icon-insta-B.png" class="w-16 h-16 mx-auto" alt="icone instagram">
+            </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="mb-6">
+            <ul class="space-y-2">
+                <li><a href="./index.html#accueil" class="underline hover:text-stone-700">Accueil</a></li>
+                <li><a href="#" class="underline hover:text-stone-700">Catalogue</a></li>
+                <li><a href="./index.html#aPropos" class="underline hover:text-stone-700">À propos</a></li>
+            </ul>
+        </div>
+
+        <!-- Mentions Légales -->
+        <div>
+            <p class="text-sm font-bold mb-3">Mentions légales</p>
+            <ul class="space-y-2">
+                <li><a href="#" class="underline hover:text-stone-700">Conditions générales de vente</a></li>
+                <li><a href="#" class="underline hover:text-stone-700">Politique de confidentialité</a></li>
+                <li><a href="#" class="underline hover:text-stone-700">Politique de retour et de remboursement</a>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luceo - Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="accueil" class="h-screen w-screen">
+
+    <!-- Background Image -->
+    <div class="relative h-screen w-screen bg-cover bg-center bg-fixed" style="background-image: url('./img/bg_accueil.webp');">
+
+        <!-- HEADER -->
+        <header class=" top-0 left-0 w-full bg-black bg-opacity-15 py-4 px-6 flex justify-between items-center z-50">
+
+            <!-- Menu Burger Icon -->
+            <div class="flex items-center pl-20">
+
+                <button aria-label="Menu" id="menuButtonW" class="inline-block hover:opacity-80">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                        stroke="currentColor" class="w-8 h-8 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M3.75 5.25h16.5M3.75 12h16.5M3.75 18.75h16.5" />
+                    </svg>
+                </button>
+
+            </div>
+
+            <!-- Centered Logo -->
+            <a href="./index.html#accueil">
+                <div class="flex justify-center">
+                    <img src="./img/logo_luceo_SF_W.png" alt="Logo" class="h-36 ml-20">
+                </div>
+            </a>
+
+            <!-- Search and Cart Icons -->
+            <div class="flex items-center gap-x-20 pr-20 relative">
+
+                <!-- Search Input and Icon -->
+                <div class="relative flex items-center">
+
+                    <!-- Search Input (Hidden by Default) -->
+                    <input type="text"
+                        class="absolute right-12 hidden w-80 rounded-full bg-white bg-opacity-75 px-4 py-1 text-black focus:outline-none z-10"
+                        id="searchInput">
+
+                    <!-- Search Icon -->
+                    <button aria-label="Search" id="searchButton" class="relative z-20 inline-block hover:opacity-80">
+                        <img src="./img/icon-search-W.png" class="w-8 h-8" alt="icone recherche">
+                    </button>
+
+                </div>
+
+                <!-- Cart Icon -->
+                <button aria-label="Cart" class="inline-block hover:opacity-80">
+                    <img src="./img/icon-cart-W.png" class="w-8 h-8" alt="icone panier">
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Dropdown Menu -->
+        <div id="dropdownMenuW" class="absolute left-0 bg-black bg-opacity-15 hidden z-40 w-auto">
+            <ul class="text-white font-normal text-lg">
+                <li><a href="#" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Accueil</a></li>
+                <li><a href="#nouveautés" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Nouveautés</a>
+                </li>
+                <li><a href="./catalogue.html#catalogue"
+                        class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Catalogue</a></li>
+                <li><a href="#aPropos" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">À propos</a></li>
+                <li><a href="#footer" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Mentions légales</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex flex-col items-center justify-center h-full text-center text-white">
+            <p class="text-5xl mb-44 leading-snug">Des bijoux en argents 925 faits à la main.
+                <br>Une collection par saison, une pierre différente à chaque fois.
+            </p>
+        </div>
+
+    </div>
+
+    <main class="main-bg-color">
+
+        <!-- Additional Content -->
+        <section id="nouveautés" class="pt-16 text-center">
+
+            <!-- Centered Title -->
+            <h2 class="text-4xl font-semibold mb-14">Collection Abscission</h2>
+
+            <!-- Three Images with Descriptions -->
+            <div
+                class="flex flex-col md:flex-row justify-center items-center space-y-10 md:space-y-0 md:space-x-20 px-6">
+
+                <!-- Image 1 -->
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <img src="./img/Collection_Abscission/pendentif_absci_porte_2.webp" alt="Service 1"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Hover image -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+
+                        <!-- Nouveauté Badge -->
+                        <div
+                            class="absolute top-2 left-2 bg-white bg-opacity-60 text-xl border border-black px-12 py-px">
+                            Nouveauté
+                        </div>
+                    </a>
+
+                    <p class="text-2xl font-medium mt-2">Pendentif Abscission</p>
+
+                </div>
+
+                <!-- Image 2 -->
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <img src="./img/Collection_Abscission/bague_absci_porte.webp" alt="Service 2"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Hover image -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+
+                        <!-- Nouveauté Badge -->
+                        <div
+                            class="absolute top-2 left-2 bg-white bg-opacity-60 text-xl border border-black px-12 py-px">
+                            Nouveauté
+                        </div>
+                    </a>
+
+                    <p class="text-2xl font-medium mt-2">Bague Abscission</p>
+
+                </div>
+
+                <!-- Image 3 -->
+                <div class="relative max-w-md">
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <img src="./img/Collection_Abscission/bracelet_absci_porte.webp" alt="Service 3"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+
+                        <!-- Hover image -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+
+                        <!-- Nouveauté Badge -->
+                        <div
+                            class="absolute top-2 left-2 bg-white bg-opacity-60 text-xl border border-black px-12 py-px">
+                            Nouveauté
+                        </div>
+                    </a>
+
+                    <p class="text-2xl font-medium mt-2">Bracelet Abscission</p>
+
+                </div>
+
+            </div>
+
+            <a href="./catalogue.html"
+                class="btn-bg-color mt-14 mb-36 px-14 py-2 text-2xl border-2 border-black hover:bg-stone-200 inline-block text-center">
+                Voir les autres collections
+            </a>
+
+
+        </section>
+
+        <!-- Section with Image and Text -->
+        <section id="aPropos" class="py-16">
+
+            <div class="container mx-auto flex flex-col md:flex-row items-center px-6 space-y-10 md:space-y-0">
+
+                <!-- Image on the Left -->
+                <div class="md:w-1/2">
+                    <img src="./img/logo_luceo_AF.webp" alt="Image descriptive" class="shadow-md">
+                </div>
+
+                <!-- Text Content on the Right -->
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl font-semibold mb-12">À PROPOS</h2>
+                    <br>
+                    <p class="text-lg leading-snug">
+                        Lūcĕo est une marque de bijoux artisanale créée en Mars 2024 par Noémie Carpentier.
+                        <br><br>
+                        « C'est au cours d'un long trajet en voiture, sur la route de baleines, ici au Canada, que
+                        j'ai enfin trouvé le nom de ma marque. Je voulais quelque chose qui sonne bien et qui ait
+                        du sens. Lūcĕo signifie Briller en latin, je trouvais ça beau et je me suis lancée ! »
+                        <br><br>
+                        Chaque bijou est fait à la main au Québec et met en avant des pierres précieuses et
+                        semi-précieuses
+                        à travers des collections éphémères à chaque saison.
+                        <br><br>
+                        « Chaque pièce est unique et mise en valeur dans ma vitrine virtuelle, Instagram, où
+                        chaque collection se distingue par une couleur différente. Je voulais créer un ensemble
+                        artistique et poétique qui m'inspire pour mes créations. »
+                        <br><br>
+                        Je vous laisse explorer cet univers.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="py-16">
+
+            <div class="container mx-auto flex flex-col md:flex-row-reverse items-center px-6 space-y-10 md:space-y-0">
+
+                <!-- Image on the Right -->
+                <div class="md:w-1/2 flex justify-end pr-10">
+                    <img src="./img/logo_luceo_AF.webp" alt="Image descriptive" class="shadow-md">
+                </div>
+
+                <!-- Text Content on the Left -->
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl font-semibold mb-12">QUI SE CACHE DERRIERE LŪCĒO ?</h2>
+                    <br>
+                    <p class="text-lg leading-snug">
+                        Noémie Carpentier, française installée au Québec depuis plusieurs années, il m'aura fallu
+                        attendre 3 ans après l'obtention de mon diplôme de bijouterie-joaillerie pour enfin oser me
+                        lancer !
+                        <br><br>
+                        J'ai toujours été fascinée par ces petits objets précieux, j'admirais leur beauté, la précision
+                        d'exécution et la patience que ça devait demander pour les fabriquer. Je voulais apprendre.
+                        <br><br>
+                        Maintenant que je sais, j'ai à cœur de vous proposer des pièces de qualité toujours faites
+                        avec passion.
+                        <br><br>
+                        Noémie
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Footer Section -->
+        <footer id="footer" class="py-10 mt-44 text-center">
+
+            <!-- Instagram Icon -->
+            <div class="mb-6">
+                <a href="#" aria-label="Instagram" class="inline-block hover:opacity-80">
+                    <img src="./img/icon-insta-B.png" class="w-16 h-16 mx-auto" alt="icone instagram">
+                </a>
+            </div>
+
+            <!-- Navigation Links -->
+            <div class="mb-6">
+                <ul class="space-y-2">
+                    <li><a href="#" class="underline hover:text-stone-700">Accueil</a></li>
+                    <li><a href="./catalogue.html#catalogue" class="underline hover:text-stone-700">Catalogue</a></li>
+                    <li><a href="#aPropos" class="underline hover:text-stone-700">À propos</a></li>
+                </ul>
+            </div>
+
+            <!-- Mentions Légales -->
+            <div>
+                <p class="text-sm font-bold mb-3">Mentions légales</p>
+                <ul class="space-y-2">
+                    <li><a href="#" class="underline hover:text-stone-700">Conditions générales de vente</a></li>
+                    <li><a href="#" class="underline hover:text-stone-700">Politique de confidentialité</a></li>
+                    <li><a href="#" class="underline hover:text-stone-700">Politique de retour et de remboursement</a>
+                    </li>
+                </ul>
+            </div>
+
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

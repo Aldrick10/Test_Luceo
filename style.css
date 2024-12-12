@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.main-bg-color {
+    background: #F9F6F3;
+}
+
+.btn-bg-color {
+    background: #F9F6F3;
+}
+

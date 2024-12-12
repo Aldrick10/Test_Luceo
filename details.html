@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucéo - Pendentif Abscission</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="details" class="bg-[#F9F6F3] font-sans">
+    <!-- HEADER -->
+    <header class=" top-0 left-0 w-full py-4 px-6 mb-20 flex justify-between items-center z-50">
+
+        <!-- Menu Burger Icon -->
+        <div class="flex items-center pl-20">
+            <button aria-label="Menu" id="menuButtonB" class="inline-block hover:opacity-80">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5"
+                    stroke="currentColor" class="w-8 h-8 text-black">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 5.25h16.5M3.75 12h16.5M3.75 18.75h16.5" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Centered Logo -->
+        <a href="./index.html#accueil">
+            <div class="flex justify-center">
+                <img src="./img/logo_luceo_SF_B.png" alt="Logo" class="h-36 ml-20">
+            </div>
+        </a>
+
+        <!-- Search and Cart Icons -->
+        <div class="flex items-center gap-x-20 pr-20 relative">
+
+            <!-- Search Input and Icon -->
+            <div class="relative flex items-center">
+
+                <!-- Search Input (Hidden by Default) -->
+                <input type="text"
+                    class="absolute right-12 hidden w-80 rounded-full bg-black bg-opacity-25 px-4 py-1 text-black focus:outline-none z-10"
+                    id="searchInput">
+
+                <!-- Search Icon -->
+                <button aria-label="Search" id="searchButton" class="relative z-20 inline-block hover:opacity-80">
+                    <img src="./img/icon-search-B.png" class="w-8 h-8" alt="icone recherche">
+                </button>
+
+            </div>
+
+            <!-- Cart Icon -->
+            <button aria-label="Cart" class="inline-block hover:opacity-80">
+                <img src="./img/icon-cart-B.png" class="w-8 h-8" alt="icone panier">
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Dropdown Menu -->
+    <div id="dropdownMenuB" class="absolute bg-[#F9F6F3] left-0 hidden z-40 w-auto border-black border-r border-b">
+        <ul class="font-normal text-lg">
+            <li><a href="./index.html#accueil" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Accueil</a>
+            </li>
+            <li><a href="./index.html#nouveautés"
+                    class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Nouveautés</a></li>
+            <li><a href="./catalogue.html#catalogue"
+                    class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Catalogue</a></li>
+            <li><a href="./index.html#aPropos" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">À propos</a>
+            </li>
+            <li><a href="#footer" class="block px-20 py-4 hover:bg-black hover:bg-opacity-10">Mentions légales</a></li>
+        </ul>
+    </div>
+
+    <main class="w-[80%] mx-auto ">
+        <!-- Breadcrumb -->
+        <nav class="text-lg mb-4">
+            <a href="./catalogue.html#catalogue" class="underline font-semibold hover:text-stone-700">Catalogue</a> >
+            Pendentif Abscission
+        </nav>
+
+        <!-- Product Section -->
+        <div class="flex flex-col lg:flex-row gap-12 mb-44">
+            <!-- Left: Image and Thumbnails -->
+            <div class="flex-1 flex gap-6">
+                <!-- Thumbnails -->
+                <div class="flex flex-col space-y-6">
+                    <img src="./img/Collection_Abscission/pendentif_absci_porte_2.webp" alt="Thumbnail 1"
+                        class="w-28 h-28 cursor-pointer border hover:border-black">
+                    <img src="./img/Collection_Abscission/pendentif_absci_vue_face.webp" alt="Thumbnail 2"
+                        class="w-28 h-28 cursor-pointer border hover:border-black">
+                    <img src="./img/Collection_Abscission/pendentif_absci_porte_1.webp" alt="Thumbnail 3"
+                        class="w-28 h-28 cursor-pointer border hover:border-black">
+                </div>
+
+                <!-- Main Image -->
+                <div class="flex-1">
+                    <img src="./img/Collection_Abscission/pendentif_absci_porte_2.webp" alt="Pendentif"
+                        class="w-[100%] mx-auto">
+                </div>
+            </div>
+
+            <!-- Right: Product Info -->
+            <div class="flex-1 ml-8">
+                <h1 class="text-4xl font-semibold">Pendentif Abscission</h1>
+                <p class="text-2xl font-medium mt-4">180,00 $CA</p>
+
+                <!-- Dropdown: Description -->
+                <div class="mt-6">
+                    <button onclick="toggleDropdown('description')"
+                        class="w-full flex justify-between items-center py-4 pr-44 rounded-md focus:outline-none">
+                        <span class="text-lg font-bold">Description</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="description" class="hidden px-6">
+                        <ul class="list-disc list-inside">
+                            <li>Pendentif en argent 925 serti d’une pierre œil de tigre</li>
+                            <li>Dimension : 2 cm</li>
+                            <li>Fabrication à la main au Québec</li>
+                            <li>Chaque bijou est unique</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Dropdown: Expédition et Retours -->
+                <div class="my-6">
+                    <button onclick="toggleDropdown('expedition')"
+                        class="w-full flex justify-between items-center py-4 pr-44 rounded-md focus:outline-none">
+                        <span class="text-lg font-bold">Expédition et retours</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="expedition" class="hidden px-6">
+                        <span class="text-lg font-semibold">Expédition</span>
+                        <ul class="list-disc list-inside my-4">
+                            <li>Fabrication des bijoux à la commande, délais de traitement estimé : 7 jours</li>
+                            <li>Délai de livraison par Poste Canada : 3-8 jours ouvrables</li>
+                            <li>Livraison Canada et Europe</li>
+                        </ul>
+                        <span class="text-lg font-semibold">Retours</span>
+                        <ul class="list-disc list-inside mt-4">
+                            <li> Pas de retour ni d’échange possible</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <button
+                    class="w-[80%] mt-8 bg-[#F9F6F3] font-bold py-4 border border-black border-2 hover:bg-stone-200 transition text-lg">Ajouter
+                    au panier</button>
+            </div>
+        </div>
+
+        <!-- Related Items -->
+        <section class="mt-20">
+            <h2 class="text-4xl font-semibold mb-12">Autres articles</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20">
+
+                <!-- Article 1 -->
+                <div>
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <img src="./img/Collection_Bourgeon/pendentif_bourg_porte_2.webp" alt="Pendentif Bourgeon"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <h3 class="text-2xl mt-4">Pendentif Bourgeon</h3>
+                    <p class="text-lg">100,00 $CA</p>
+                </div>
+
+                <!-- Article 2 -->
+                <div>
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <img src="./img/Collection_Eclosion/bague_eclo_porte_3.webp" alt="Bague Eclosion"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <h3 class="text-2xl mt-4">Bague Eclosion</h3>
+                    <p class="text-lg">165,00 $CA</p>
+                </div>
+
+                <!-- Article 3 -->
+                <div>
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <img src="./img/Collection_Abscission/bracelet_absci_porte.webp" alt="Bracelet Abscission"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <h3 class="text-2xl mt-4">Bracelet Abscission</h3>
+                    <p class="text-lg">192,00 $CA</p>
+                </div>
+
+                <!-- Article 4 -->
+                <div>
+                    <a href="./details.html#details" class="group block overflow-hidden relative">
+                        <img src="./img/Collection_Bourgeon/bracelet_bourg_porte.webp" alt="Bracelet Bourgeon"
+                            class="group-hover:scale-110 transform transition duration-300 ease-in-out w-full h-auto">
+                        <!-- Effet hover -->
+                        <div
+                            class="absolute inset-0 bg-white bg-opacity-15 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out flex items-center justify-center">
+                            <div class="bg-black bg-opacity-75 text-white text-xl px-14 py-1.5">
+                                Voir les détails
+                            </div>
+                        </div>
+                    </a>
+                    <h3 class="text-2xl mt-4">Bracelet Bourgeon</h3>
+                    <p class="text-lg">125,00 $CA</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="py-10 mt-44 text-center">
+
+        <!-- Instagram Icon -->
+        <div class="mb-6">
+            <a href="#" aria-label="Instagram" class="inline-block hover:opacity-80">
+                <img src="./img/icon-insta-B.png" class="w-16 h-16 mx-auto" alt="icone instagram">
+            </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="mb-6">
+            <ul class="space-y-2">
+                <li><a href="./index.html#accueil" class="underline hover:text-stone-700">Accueil</a></li>
+                <li><a href="#" class="underline hover:text-stone-700">Catalogue</a></li>
+                <li><a href="./index.html#aPropos" class="underline hover:text-stone-700">À propos</a></li>
+            </ul>
+        </div>
+
+        <!-- Mentions Légales -->
+        <div>
+            <p class="text-sm font-bold mb-3">Mentions légales</p>
+            <ul class="space-y-2">
+                <li><a href="#" class="underline hover:text-stone-700">Conditions générales de vente</a></li>
+                <li><a href="#" class="underline hover:text-stone-700">Politique de confidentialité</a></li>
+                <li><a href="#" class="underline hover:text-stone-700">Politique de retour et de remboursement</a>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
